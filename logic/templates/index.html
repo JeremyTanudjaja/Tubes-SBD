@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Tubes SBD</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <style>
+    table, th, td {
+        border:1px solid black;
+    }
+    </style>
+</head>
+<body>
+    <nav></nav>
+    <div id = "title">Test Koneksi Index</div>
+    <div id= "test-table-wrapper" class = "table-wrapper">
+    <div id= "test-table" class = "table-scroll">
+        <table >
+            <thead>
+            <tr><th>Employee ID</th><th>Name</th></tr>
+            </thead>
+            <tbody>
+            {% for employee in employees %}
+            <tr><td>{{employee['id']}}</td><td>{{employee['name']}}</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+</body>
+</html>
