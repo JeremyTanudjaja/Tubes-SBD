@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home_style.css') }}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+        <div class="logo_name">Dolphin</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <a href="#" id="admin">
+          <i class='bx bxs-user-account'></i>
+          <span class="links_name">Admin List</span>
+        </a>
+         <span class="tooltip">Admin List</span>
+      </li>
+      <li>
+        <a href="#" id="customer_account">
+          <i class='bx bxs-user-detail'></i>
+          <span class="links_name">Customer Account List</span>
+        </a>
+         <span class="tooltip">Customer Account List</span>
+      </li>
+      <li>
+        <a href="#" id="order_detail_list">
+          <i class='bx bx-user-plus' ></i>
+          <span class="links_name">Order Detail List</span>
+        </a>
+         <span class="tooltip">Order Detail List</span>
+      </li>
+      <li>
+        <a href="#" id="order_list">
+          <i class='bx bxs-coin-stack'></i>
+          <span class="links_name">Order List</span>
+        </a>
+         <span class="tooltip">Order List</span>
+      </li>
+      <li>
+        <a href="#" id="product_list">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Product List</span>
+        </a>
+         <span class="tooltip">Product List</span>
+      </li>
+
+     <li class="profile">
+         <div class="profile-details">
+           <!--<img src="profile.jpg" alt="profileImg">-->
+           <div class="name_job">
+             <div class="admin_id"><!--<?php echo("$id")?>--></div>
+             <div class="admin_name"><!--<?php echo("$name")?>--></div>
+           </div>
+         </div>
+         <a href="../../Functions/login_function.php?delete=True">
+           <i class='bx bx-log-out' id="log_out" ></i>
+        </a>
+     </li>
+    </ul>
+  </div>
+  <section class="home-section" id="body">
+      <div class="text">Dashboard</div>
+  </section>
+
+  <script>
+  //For Slider to work
+  let sidebar = document.querySelector(".sidebar");
+  let closeBtn = document.querySelector("#btn");
+
+  closeBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("open");
+    menuBtnChange();//calling the function(optional)
+  });
+
+  // following are the code to change sidebar button(optional)
+  function menuBtnChange() {
+   if(sidebar.classList.contains("open")){
+     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+   }else {
+     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+   }
+  }
+  </script>
+  <script>
+    //ajax admin
+    $(document).ready(function(){
+        $("#admin").click(function(){
+          $("#body").load("../Admin/Admin.php",{
+            //password_x : password,
+            //sitenames : siteName
+          });
+        });
+      });
+    //ajax customer list
+    $(document).ready(function(){
+        $("#customer_account").click(function(){
+          $("#body").load("../Customer_Account/Customer_Account.php",{
+            //password_x : password,
+            //sitenames : siteName
+          });
+        });
+      });
+    //ajax pre user list
+    $(document).ready(function(){
+        $("#order_detail_list").click(function(){
+          $("#body").load("../Order_Detail_List/Order_Detail.php",{
+            //password_x : password,
+            //sitenames : siteName
+          });
+        });
+      });
+    //ajax order list
+    $(document).ready(function(){
+        $("#order_list").click(function(){
+          $("#body").load("../Order/Order.php",{
+            //password_x : password,
+            //sitenames : siteName
+          });
+        });
+      });
+    //ajax product list
+    $(document).ready(function(){
+        $("#product_list").click(function(){
+          $("#body").load("../Product_List/Product_List.php",{
+            //password_x : password,
+            //sitenames : siteName
+          });
+        });
+      });
+
+
+  </script>
+</body>
+</html>

@@ -6,6 +6,9 @@ test = Controller_Test()
 
 @app.route("/home")
 @app.route("/")
-def home():
+def index():
     test_data = test.grab_data()
     return render_template("index.html", employees=test_data)
+
+def home():
+    return render_template("home.html")
