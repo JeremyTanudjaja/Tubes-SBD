@@ -10,7 +10,7 @@
 <body>
   <div class="sidebar">
     <div class="logo-details">
-        <div class="logo_name">Dolphin</div>
+        <div class="logo_name">Bike Rush</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
@@ -22,43 +22,78 @@
          <span class="tooltip">Admin List</span>
       </li>
       <li>
-        <a href="#" id="customer_account">
+        <a href="#" id="Departments">
           <i class='bx bxs-user-detail'></i>
-          <span class="links_name">Customer Account List</span>
+          <span class="links_name">Departments List</span>
         </a>
-         <span class="tooltip">Customer Account List</span>
+         <span class="tooltip">Departments List</span>
       </li>
       <li>
-        <a href="#" id="order_detail_list">
+        <a href="#" id="employee_list">
           <i class='bx bx-user-plus' ></i>
-          <span class="links_name">Order Detail List</span>
+          <span class="links_name">Employees List</span>
         </a>
-         <span class="tooltip">Order Detail List</span>
-      </li>
-      <li>
-        <a href="#" id="order_list">
-          <i class='bx bxs-coin-stack'></i>
-          <span class="links_name">Order List</span>
-        </a>
-         <span class="tooltip">Order List</span>
+         <span class="tooltip">Employees List</span>
       </li>
       <li>
         <a href="#" id="product_list">
-          <i class='bx bx-grid-alt'></i>
+          <i class='bx bxs-coin-stack'></i>
           <span class="links_name">Product List</span>
         </a>
          <span class="tooltip">Product List</span>
       </li>
+        <li>
+        <a href="#" id="inventories_list">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Inventories List</span>
+        </a>
+         <span class="tooltip">Inventories List</span>
+      </li>
+      <li>
+        <a href="#" id="vendor_list">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Vendor List</span>
+        </a>
+         <span class="tooltip">Vendor List</span>
+      </li>
+          <li>
+        <a href="#" id="material_list">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Material List</span>
+        </a>
+         <span class="tooltip">Material List</span>
+      </li>
+          <li>
+        <a href="#" id="material_order_list">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Material Order</span>
+        </a>
+         <span class="tooltip">Material Order</span>
+      </li>
+          <li>
+        <a href="#" id="customer_list">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Customer List</span>
+        </a>
+         <span class="tooltip">Customer List</span>
+      </li>
+          <li>
+        <a href="#" id="sales_list">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Sales List</span>
+        </a>
+         <span class="tooltip">Sales List</span>
+      </li>
 
      <li class="profile">
          <div class="profile-details">
-           <!--<img src="profile.jpg" alt="profileImg">-->
+             <img src="profile.jpg" alt="text">
            <div class="name_job">
-             <div class="admin_id"><!--<?php echo("$id")?>--></div>
-             <div class="admin_name"><!--<?php echo("$name")?>--></div>
+             <div class="admin_id">{{admin_data['ID']}}</div>
+             <div class="admin_name">{{admin_data['name']}}</div>
            </div>
          </div>
-         <a href="../../Functions/login_function.php?delete=True">
+         <a href="{{url_for('index')}}">
            <i class='bx bx-log-out' id="log_out" ></i>
         </a>
      </li>
@@ -66,6 +101,7 @@
   </div>
   <section class="home-section" id="body">
       <div class="text">Dashboard</div>
+
   </section>
 
   <script>
@@ -91,46 +127,121 @@
     //ajax admin
     $(document).ready(function(){
         $("#admin").click(function(){
-          $("#body").load("../Admin/Admin.php",{
-            //password_x : password,
-            //sitenames : siteName
-          });
+             $.ajax({
+                url:'/admin',
+                type:'POST',
+                success: function(response){
+                    $('#body').html(response)
+                }
+            })
         });
       });
-    //ajax customer list
+    //ajax Department list
     $(document).ready(function(){
-        $("#customer_account").click(function(){
-          $("#body").load("../Customer_Account/Customer_Account.php",{
-            //password_x : password,
-            //sitenames : siteName
-          });
+        $("#Departments").click(function(){
+            $.ajax({
+                url:'/Departments',
+                type:'POST',
+                success: function(response){
+                    $('#body').html(response)
+                }
+            })
         });
       });
-    //ajax pre user list
+    //ajax employees list
     $(document).ready(function(){
-        $("#order_detail_list").click(function(){
-          $("#body").load("../Order_Detail_List/Order_Detail.php",{
-            //password_x : password,
-            //sitenames : siteName
-          });
-        });
-      });
-    //ajax order list
-    $(document).ready(function(){
-        $("#order_list").click(function(){
-          $("#body").load("../Order/Order.php",{
-            //password_x : password,
-            //sitenames : siteName
-          });
+        $("#employee_list").click(function(){
+              $.ajax({
+                url:'/Employees',
+                type:'POST',
+                success: function(response){
+                    $('#body').html(response)
+                }
+            })
         });
       });
     //ajax product list
     $(document).ready(function(){
         $("#product_list").click(function(){
-          $("#body").load("../Product_List/Product_List.php",{
-            //password_x : password,
-            //sitenames : siteName
-          });
+             $.ajax({
+                url:'/Product',
+                type:'POST',
+                success: function(response){
+                    $('#body').html(response)
+                }
+            })
+        });
+      });
+    //ajax inventories list
+    $(document).ready(function(){
+        $("#inventories_list").click(function(){
+              $.ajax({
+                url:'/Inventories',
+                type:'POST',
+                success: function(response){
+                    $('#body').html(response)
+                }
+            })
+        });
+      });
+       //ajax vendor list
+    $(document).ready(function(){
+        $("#vendor_list").click(function(){
+              $.ajax({
+                url:'/Vendor',
+                type:'POST',
+                success: function(response){
+                    $('#body').html(response)
+                }
+            })
+        });
+      });
+       //ajax material list
+    $(document).ready(function(){
+        $("#material_list").click(function(){
+              $.ajax({
+                url:'/Material',
+                type:'POST',
+                success: function(response){
+                    $('#body').html(response)
+                }
+            })
+        });
+      });
+       //ajax material order list
+    $(document).ready(function(){
+        $("#material_order_list").click(function(){
+              $.ajax({
+                url:'/Material_Order',
+                type:'POST',
+                success: function(response){
+                    $('#body').html(response)
+                }
+            })
+        });
+      });
+        //ajax customer list
+    $(document).ready(function(){
+        $("#customer_list").click(function(){
+              $.ajax({
+                url:'/Customer',
+                type:'POST',
+                success: function(response){
+                    $('#body').html(response)
+                }
+            })
+        });
+      });
+        //ajax sales_list
+    $(document).ready(function(){
+        $("#sales_list").click(function(){
+              $.ajax({
+                url:'/Sales',
+                type:'POST',
+                success: function(response){
+                    $('#body').html(response)
+                }
+            })
         });
       });
 
