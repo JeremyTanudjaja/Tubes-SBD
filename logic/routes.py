@@ -1,9 +1,11 @@
-from flask import render_template, url_for, flash, redirect, session, app, request
-from logic.PageTransitionController import Transition_Controller
+from flask import render_template, redirect, request
+from logic.controllers.PageTransitionController import Transition_Controller
+from logic.controllers.models_controller.model_controllers import Model_Controller
 from logic import app
 
 
 page_controller = Transition_Controller()
+model_controller = Model_Controller()
 admin_data = None
 
 @app.route("/", methods=['POST','GET'])
@@ -26,7 +28,9 @@ def home():
 
 @app.route("/Departments", methods = ['POST','GET'])
 def departments():
-    return render_template("page_init/departments_init.html")
+    dept_data = model_controller.department.get_department_data()
+    print(dept_data)
+    return render_template("page_init/departments_init.html", dept_data=dept_data)
 
 @app.route("/Employees", methods = ['POST','GET'])
 def employees():

@@ -88,6 +88,14 @@
   </thead>
   <tbody>
     <!-- Table Content Here, create a while loop to get ze tables-->
+  {% for row_num in range(dept_data|length): %}
+    <tr>
+      <td>{{row_num+1}}</td>
+      <td>{{dept_data[row_num]['dept_id']}}</td>
+      <td>{{dept_data[row_num]['dept_name']}}</td>
+      <td>{{dept_data[row_num]['manager_id']}}</td>
+    </tr>
+  {% endfor %}
   </tbody>
 </table>
 </div>
