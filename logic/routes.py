@@ -28,7 +28,7 @@ def home():
 
 @app.route("/Departments", methods = ['POST','GET'])
 def departments():
-    dept_data = model_controller.department.get_department_data()
+    dept_data = model_controller.departments.get_department_data()
     print(dept_data)
     return render_template("page_init/departments_init.html", dept_data=dept_data)
 

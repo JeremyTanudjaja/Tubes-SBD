@@ -4,7 +4,15 @@ from logic.controllers.models_controller import department_controller
 
 class Model_Controller:
 
-    department = None
+    departments = None
+    employees = None
+    vendors = None
+    products = None
+    customers = None
+    materials = None
+    inventories = None
+    material_orders = None
+    sales_product = None
 
     def __init__(self):
         '''Initialize connection to oracle database and creates a cursor'''
@@ -18,4 +26,5 @@ class Model_Controller:
     def call_models(self):
         '''This Method is used to Initialized all the models so that we can manipulate the data
         in the HTML, basicly this is the gateway for the SQL logic to pass through'''
-        self.department = department_controller.Department_Controller(cursor=self.cursor)
+        self.departments = department_controller.Department_Controller(cursor=self.cursor)
+

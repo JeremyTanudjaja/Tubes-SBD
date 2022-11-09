@@ -47,28 +47,27 @@
 
 <p style='font: 54px bold;'>Materials List Database</p><br><br>
 
-<form method="post" enctype="multipart/form-data" action="../Home/Home.php">
-  <label style="display:inline-block; width:250px;">New Product ID:</label>
-  <input type="text" name="ID_Product" style="display:inline-block; width:320px;" value="3XXX"><br><br>
+<form method="post" enctype="multipart/form-data" action=" ">
+  <label style="display:inline-block; width:250px;">New Material ID:</label>
+  <input type="text" name="Material_ID" style="display:inline-block; width:320px;" value="6XXX"><br><br>
 
-  <label style="display:inline-block; width:250px;">New Product Name:</label>
-  <input type="text" name="Product_Name" style="display:inline-block; width:320px;" value="Balon Angsa Sayap"><br><br>
-
-  <label style="display:inline-block; width:250px;">New Product Price:</label>
-  <input type="text" name="Product_Price" style="display:inline-block; width:320px;" value="Insert Whole Number"><br><br>
+  <label style="display:inline-block; width:250px;">New Material Name:</label>
+  <input type="text" name="Material_Name" style="display:inline-block; width:320px;" value="ex: Steel Alloy"><br><br>
 
   <label style="display:inline-block; width:250px;">Quantity:</label>
-  <input type="text" name="Product_Quantity" style="display:inline-block; width:320px;" value="New|Update Quantity"><br><br>
+  <input type="text" name="Quantity" style="display:inline-block; width:320px;" value="ex: 20"><br><br>
 
-  <label style="display:inline-block; width:250px;">Product Photo:</label>
-  <input type="File" name="Product_Photo"  value="Photo"><br><br>
+  <label style="display:inline-block; width:250px;">Material Price:</label>
+  <input type="text" name="Material_Price" style="display:inline-block; width:320px;" value="ex: 100000"><br><br>
+
+  <label style="display:inline-block; width:250px;">Vendor ID:</label>
+  <input type="text" name="Vendor_ID" style="display:inline-block; width:320px;" value="3XXX"><br><br>
 
 
-  <input type="submit" value="Create" name="Create_Product"  id="Create_Product" style="width:100px;margin-right:30px; margin-left:90px;">
-  <input type="submit" value="Update" name="Update_Product"  id="Update_Product" style="width:100px;margin-right:30px; ">
-  <input type="submit" value="Delete" name="Delete_Product"  id="Delete_Product" style="width:100px;margin-right:30px; ">
+  <input type="submit" value="Create" name="Create_Material"  id="Create_Material" style="width:100px;margin-right:30px; margin-left:90px;">
+  <input type="submit" value="Update" name="Update_Material"  id="Update_Material" style="width:100px;margin-right:30px; ">
   <input type="submit" value="+" name="Increment_Quantity"  id="Increment_Quantity" style="width:100px;margin-right:30px;">
-  <input type="submit" value="-" name="Decrement_Quantity"  id="Decrement_Quantity" style="width:100px;margin-right:30px; ">
+  <input type="submit" value="-" name="Decrement_Quantity"  id="Decrement_Quantity" style="width:100px;margin-right:30px;">
 
 </form>
 <br><br>
@@ -85,6 +84,7 @@
       <td>Quantity</td>
       <td>Unit Price</td>
       <td>Vendor ID</td>
+      <td>Delete</td>
 
     </tr>
   </thead>

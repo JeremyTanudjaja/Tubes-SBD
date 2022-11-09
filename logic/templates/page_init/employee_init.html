@@ -46,27 +46,36 @@
 <div class = "" style="padding:50px;">
 <p style='font: 54px bold;'>Employees Database</p><br><br>
 <form method="post" enctype="multipart/form-data" action="">
-  <label style="display:inline-block; width:250px;">New Product ID:</label>
-  <input type="text" name="ID_Product" style="display:inline-block; width:320px;" value="3XXX"><br><br>
+  <label style="display:inline-block; width:250px;">Employee ID:</label>
+  <input type="text" name="Employee_ID" style="display:inline-block; width:320px;" value="2XXX"><br><br>
 
-  <label style="display:inline-block; width:250px;">New Product Name:</label>
-  <input type="text" name="Product_Name" style="display:inline-block; width:320px;" value="Balon Angsa Sayap"><br><br>
+  <label style="display:inline-block; width:250px;">Employee Name:</label>
+  <input type="text" name="Employee_Name" style="display:inline-block; width:320px;" value="John Doe"><br><br>
 
-  <label style="display:inline-block; width:250px;">New Product Price:</label>
-  <input type="text" name="Product_Price" style="display:inline-block; width:320px;" value="Insert Whole Number"><br><br>
+  <label style="display:inline-block; width:250px;">Email:</label>
+  <input type="text" name="Email" style="display:inline-block; width:320px;" value="Johndoe@gmail.com"><br><br>
 
-  <label style="display:inline-block; width:250px;">Quantity:</label>
-  <input type="text" name="Product_Quantity" style="display:inline-block; width:320px;" value="New|Update Quantity"><br><br>
+  <label style="display:inline-block; width:250px;">Phone Number:</label>
+  <input type="text" name="Phone_Number" style="display:inline-block; width:320px;" value="ex: 081234567890"><br><br>
 
-  <label style="display:inline-block; width:250px;">Product Photo:</label>
+  <label style="display:inline-block; width:250px;">Hire Date:</label>
+  <input type="text" name="Hire_Date" style="display:inline-block; width:320px;" value="Hire Date"><br><br>
+
+  <label style="display:inline-block; width:250px;">Salary:</label>
+  <input type="text" name="Salary" style="display:inline-block; width:320px;" value="ex: 100000"><br><br>
+
+  <label style="display:inline-block; width:250px;">Manager ID:</label>
+  <input type="text" name="Manager_ID" style="display:inline-block; width:320px;" value="2XXX"><br><br>
+
+  <label style="display:inline-block; width:250px;">Department ID:</label>
+  <input type="text" name="Department_ID" style="display:inline-block; width:320px;" value="1XXX"><br><br>
+
+  <label style="display:inline-block; width:250px;">Photo:</label>
   <input type="File" name="Product_Photo"  value="Photo"><br><br>
 
 
-  <input type="submit" value="Create" name="Create_Product"  id="Create_Product" style="width:100px;margin-right:30px; margin-left:90px;">
-  <input type="submit" value="Update" name="Update_Product"  id="Update_Product" style="width:100px;margin-right:30px; ">
-  <input type="submit" value="Delete" name="Delete_Product"  id="Delete_Product" style="width:100px;margin-right:30px; ">
-  <input type="submit" value="+" name="Increment_Quantity"  id="Increment_Quantity" style="width:100px;margin-right:30px;">
-  <input type="submit" value="-" name="Decrement_Quantity"  id="Decrement_Quantity" style="width:100px;margin-right:30px; ">
+  <input type="submit" value="Add" name="Add_Employee"  id="Add_Employee" style="width:100px;margin-right:30px; margin-left:90px;">
+  <input type="submit" value="Update" name="Update_Employee"  id="Update_Employee" style="width:100px;margin-right:30px; ">
 
 </form>
 <br><br>
@@ -88,7 +97,8 @@
       <td>Department ID</td>
       <td>Photo Name</td>
       <td>Image</td>
-    </tr>");
+      <td>Delete</td>
+    </tr>
   </thead>
   <tbody>
 
