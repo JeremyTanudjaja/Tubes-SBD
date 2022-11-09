@@ -60,6 +60,9 @@
   <label style="display:inline-block; width:250px;">Material Price:</label>
   <input type="text" name="Material_Price" style="display:inline-block; width:320px;" value="ex: 100000"><br><br>
 
+    <label style="display:inline-block; width:250px;">Material Image:</label>
+  <input type="File" name="Material_Photo"  value="Photo"><br><br>
+
   <label style="display:inline-block; width:250px;">Vendor ID:</label>
   <input type="text" name="Vendor_ID" style="display:inline-block; width:320px;" value="3XXX"><br><br>
 
@@ -83,13 +86,25 @@
       <td>Material Name</td>
       <td>Quantity</td>
       <td>Unit Price</td>
+      <td>Image</td>
       <td>Vendor ID</td>
       <td>Delete</td>
 
     </tr>
   </thead>
   <tbody>
-
+       {% for row_num in range(data|length): %}
+   <tr>
+      <td>{{row_num+1}}</td>
+      <td>{{data[row_num]['material_id']}}</td>
+      <td>{{data[row_num]['material_name']}}</td>
+      <td>{{data[row_num]['quantity']}}</td>
+      <td>{{data[row_num]['unit_price']}}</td>
+      <td>{{data[row_num]['image_link']}}</td>
+      <td>{{data[row_num]['vendor_id']}}</td>
+      <td>Delete</td>
+    </tr>
+  {% endfor %}
   </tbody>
 </table>
 </div>

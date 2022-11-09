@@ -21,7 +21,7 @@
 
   .content-table th,
   .content-table td {
-    padding: 12px 15px;
+    padding: 5px 8px;
   }
 
   .content-table tbody tr {
@@ -101,7 +101,22 @@
     </tr>
   </thead>
   <tbody>
-
+    {% for row_num in range(data|length): %}
+   <tr>
+      <td>{{row_num+1}}</td>
+      <td>{{data[row_num]['employee_id']}}</td>
+      <td>{{data[row_num]['employee_name']}}</td>
+      <td>{{data[row_num]['email']}}</td>
+      <td>{{data[row_num]['phone_number']}}</td>
+      <td>{{data[row_num]['hire_date']}}</td>
+      <td>{{data[row_num]['salary']}}</td>
+      <td>{{data[row_num]['manager_id']}}</td>
+      <td>{{data[row_num]['dept_id']}}</td>
+      <td>{{data[row_num]['photo_link']}}</td>
+      <td>{{data[row_num]['photo_link']}}</td>
+      <td>Delete</td>
+    </tr>
+  {% endfor %}
   </tbody>
 </table>
 </div>

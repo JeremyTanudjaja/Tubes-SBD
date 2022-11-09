@@ -56,7 +56,8 @@
   <label style="display:inline-block; width:250px;">Address:</label>
   <input type="text" name="Customer_Email" style="display:inline-block; width:320px;" value="JohnDoe@gmail.com"><br><br>
 
-
+      <label style="display:inline-block; width:250px;">Profile Image:</label>
+  <input type="File" name="Profile_Photo"  value="Photo"><br><br>
 
   <input type="submit" value="Create" name="Create_Customer"  id="Create_Customer" style="width:100px;margin-right:30px; margin-left:90px;">
   <input type="submit" value="Update" name="Update_Customer"  id="Update_Customer" style="width:100px;margin-right:30px; ">
@@ -74,12 +75,22 @@
       <td>Customer ID</td>
       <td>Customer Name</td>
       <td>Address</td>
+      <td>Photo</td>
       <td>Delete</td>
     </tr>
 
   </thead>
   <tbody>
-
+      {% for row_num in range(data|length): %}
+   <tr>
+      <td>{{row_num+1}}</td>
+      <td>{{data[row_num]['customer_id']}}</td>
+      <td>{{data[row_num]['customer_name']}}</td>
+      <td>{{data[row_num]['address']}}</td>
+      <td>{{data[row_num]['image_link']}}</td>
+      <td>Delete</td>
+    </tr>
+  {% endfor %}
   </tbody>
 </table>
 </div>

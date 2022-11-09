@@ -80,7 +80,15 @@
     </tr>
   </thead>
   <tbody>
-
+        {% for row_num in range(data|length): %}
+   <tr>
+      <td>{{row_num+1}}</td>
+      <td>{{data[row_num]['vendor_id']}}</td>
+      <td>{{data[row_num]['vendor_name']}}</td>
+      <td>{{data[row_num]['address']}}</td>
+      <td>Delete</td>
+    </tr>
+  {% endfor %}
   </tbody>
 </table>
 </div>

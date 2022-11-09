@@ -83,7 +83,17 @@
     </tr>
   </thead>
   <tbody>
-
+  {% for row_num in range(data|length): %}
+   <tr>
+      <td>{{row_num+1}}</td>
+      <td>{{data[row_num]['product_id']}}</td>
+      <td>{{data[row_num]['product_name']}}</td>
+      <td>{{data[row_num]['unit_price']}}</td>
+      <td>{{data[row_num]['image_link']}}</td>
+      <td>{{data[row_num]['image_link']}}</td>
+      <td>Delete</td>
+    </tr>
+  {% endfor %}
   </tbody>
 </table>
 </div>

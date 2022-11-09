@@ -9,7 +9,7 @@ class Transition_Controller:
     def login_admin(self, admin_data):
         admin_name = admin_data['name']
         admin_password = admin_data['password']
-        if admin_name.lower() == "admin" and admin_password == "12345678":
+        if admin_name.lower() == "admin" and admin_password == "some_password":
             return True
         print("Login Failed")
         return False

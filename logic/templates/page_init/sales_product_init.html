@@ -83,6 +83,7 @@
     <tr>
       <td>No</td>
       <td>Sales ID</td>
+      <td>Customer ID</td>
       <td>Product ID</td>
       <td>Product Name</td>
       <td>Status</td>
@@ -92,7 +93,19 @@
     </tr>
   </thead>
   <tbody>
-
+  {% for row_num in range(data|length): %}
+   <tr>
+      <td>{{row_num+1}}</td>
+      <td>{{data[row_num]['sales_id']}}</td>
+      <td>{{data[row_num]['customer_id']}}</td>
+      <td>{{data[row_num]['product_id']}}</td>
+      <td>{{data[row_num]['product_name']}}</td>
+      <td>{{data[row_num]['status']}}</td>
+      <td>{{data[row_num]['quantity']}}</td>
+      <td>{{data[row_num]['order_date']}}</td>
+      <td>Delete</td>
+    </tr>
+  {% endfor %}
   </tbody>
 </table>
 </div>

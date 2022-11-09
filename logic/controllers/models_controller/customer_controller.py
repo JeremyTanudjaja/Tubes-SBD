@@ -1,7 +1,7 @@
 class Customer_Controller():
 
     def __init__(self, cursor):
-        """Initialize the Department controller"""
+        """Initialize the Customer controller"""
         print("connection to Customer succeeded")
         self.cursor = cursor
 
