@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   <style>
   .content-table {
     border-collapse: collapse;
@@ -47,20 +49,21 @@
 <p style='font: 54px bold;'>Vendor Database</p><br><br>
 
 <form method="post" enctype="multipart/form-data" action="">
-  <label style="display:inline-block; width:250px;">New Vendor ID:</label>
-  <input type="text" name="Vendor_ID" style="display:inline-block; width:320px;" value="3XXX"><br><br>
 
   <label style="display:inline-block; width:250px;">New Vendor Name:</label>
-  <input type="text" name="Vendor_Name" style="display:inline-block; width:320px;" value="ex: Chicago Steel Mill"><br><br>
-
+  <input type="text" name="Vendor_Name" style="display:inline-block; width:320px;"
+         placeholder="Washington Steel" onfocus="this.value = this.value=='Washington Steel'?'':this.value;" onblur="this.value = this.value==''?'Washington Steel':this.value;">
+    <br><br>
   <label style="display:inline-block; width:250px;">Address:</label>
-  <input type="text" name="Address" style="display:inline-block; width:320px;" value="ex: 12th Downing Street London"><br><br>
+  <input type="text" name="Address" style="display:inline-block; width:320px;"
+         placeholder="19th Downing Street" onfocus="this.value = this.value=='19th Downing Street'?'':this.value;" onblur="this.value = this.value==''?'19th Downing Street':this.value;">
+    <br><br>
 
 
 
 
   <input type="submit" value="Add" name="Create_Vendor"  id="Create_Vendor" style="width:100px;margin-right:30px; margin-left:90px;">
-  <input type="submit" value="Update" name="Update_Vendor"  id="Update_Vendor" style="width:100px;margin-right:30px; ">
+
 
 
 </form>
@@ -76,7 +79,7 @@
       <td>Vendor ID</td>
       <td>Vendor Name</td>
       <td>Address</td>
-      <td>Delete</td>
+      <td>Action</td>
     </tr>
   </thead>
   <tbody>
@@ -86,12 +89,46 @@
       <td>{{data[row_num]['vendor_id']}}</td>
       <td>{{data[row_num]['vendor_name']}}</td>
       <td>{{data[row_num]['address']}}</td>
-      <td>Delete</td>
+      <td>
+          <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">Edit</a>
+          <a href="" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete')">Delete</a>
+      </td>
     </tr>
   {% endfor %}
   </tbody>
 </table>
 </div>
-
+<!--Update Pop Up-->
+<div id="modaledit" class="modal fade" role="dialog" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"></button>
+                <h4 class="modal-title">Please Update Data</h4>
+            </div>
+            <div class="modal-body">
+                <!--Edit Form-->
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label> Vendor Name: </label>
+                        <input type="text" class="form-control" name="update_vendor_name"
+                               placeholder="Washington Steel" onfocus="this.value = this.value=='Washington Steel'?'':this.value;" onblur="this.value = this.value==''?'Washington Steel':this.value;">
+                    </div>
+                    <div class="form-group">
+                        <label> Address: </label>
+                        <input type="text" class="form-control" name="update_vendor_address"
+                               placeholder="19th Downing Street" onfocus="this.value = this.value=='19th Downing Street'?'':this.value;" onblur="this.value = this.value==''?'19th Downing Street':this.value;">
+                    </div>
+                     <div class="form-group">
+                        <button class="btn btn-primary" type="submit"> Update Data</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
