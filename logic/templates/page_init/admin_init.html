@@ -51,19 +51,23 @@
 
 <form method="post" enctype="multipart/form-data" action="">
 
-  <label style="display:inline-block; width:250px;">New Department Name:</label>
-  <input type="text" name="Department_Name" style="display:inline-block; width:320px;"
-                                   placeholder="Accounting " onfocus="this.value = this.value=='Accounting'?'':this.value;" onblur="this.value = this.value==''?'Accounting':this.value;">
+  <label style="display:inline-block; width:250px;">New Username:</label>
+  <input type="text" name="Admin_Username" style="display:inline-block; width:320px;"
+                                   placeholder="Admin" onfocus="this.value = this.value=='Admin'?'':this.value;" onblur="this.value = this.value==''?'Admin':this.value;">
     <br><br>
 
-  <label style="display:inline-block; width:250px;">New Manager ID:</label>
-  <input type="text" name="Manager_ID" style="display:inline-block; width:320px;"
+  <label style="display:inline-block; width:250px;">Password:</label>
+  <input type="text" name="Admin_Password" style="display:inline-block; width:320px;"
+         placeholder="Password" onfocus="this.value = this.value=='Password'?'':this.value;" onblur="this.value = this.value==''?'Password':this.value;">
+    <br><br>
+
+  <label style="display:inline-block; width:250px;">Employee ID:</label>
+  <input type="text" name="Admin_EmployeeID" style="display:inline-block; width:320px;"
          placeholder="2001" onfocus="this.value = this.value=='2001'?'':this.value;" onblur="this.value = this.value==''?'2001':this.value;">
     <br><br>
 
 
-
-  <input type="submit" value="Add" name="Create_Department"  id="Create_Department" style="width:100px;margin-right:30px; margin-left:90px;">
+  <input type="submit" value="Add" name="Create_Admin"  id="Create_Admin" style="width:100px;margin-right:30px; margin-left:90px;">
 
 
 
@@ -76,20 +80,22 @@
   <thead>
     <tr>
       <td>No</td>
-      <td>Department ID</td>
-      <td>Department Name</td>
-      <td>Manager ID</td>
+      <td>Admin ID</td>
+      <td>Username</td>
+      <td>Password</td>
+      <td>Employee ID</td>
       <td>Action</td>
     </tr>
   </thead>
   <tbody>
     <!-- Table Content Here, create a while loop to get ze tables-->
-  {% for row_num in range(dept_data|length): %}
+  {% for row_num in range(data|length): %}
     <tr>
       <td>{{row_num+1}}</td>
-      <td>{{dept_data[row_num]['dept_id']}}</td>
-      <td>{{dept_data[row_num]['dept_name']}}</td>
-      <td>{{dept_data[row_num]['manager_id']}}</td>
+      <td>{{data[row_num]['admin_id']}}</td>
+      <td>{{data[row_num]['username']}}</td>
+      <td>{{data[row_num]['password']}}</td>
+      <td>{{data[row_num]['emp_id']}}</td>
       <td>
           <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">Edit</a>
           <a href="" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete')">Delete</a>
@@ -111,15 +117,20 @@
                 <!--Edit Form-->
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label> Department Name: </label>
-                        <input type="text" class="form-control" name="update_department_name"
-                               placeholder="Accounting " onfocus="this.value = this.value=='Accounting'?'':this.value;" onblur="this.value = this.value==''?'Accounting':this.value;">
+                      <label style="display:inline-block; width:250px;">New Username:</label>
+                      <input type="text" name="Admin_Username" style="display:inline-block; width:320px;"
+                                   placeholder="Admin" onfocus="this.value = this.value=='Admin'?'':this.value;" onblur="this.value = this.value==''?'Admin':this.value;">
                     </div>
                     <div class="form-group">
-                        <label> Manager ID: </label>
-                        <input type="text" class="form-control" name="update_manager_id"
-                               placeholder="2001" onfocus="this.value = this.value=='2001'?'':this.value;" onblur="this.value = this.value==''?'2001':this.value;">
+                      <label style="display:inline-block; width:250px;">Password:</label>
+                      <input type="text" name="Admin_Password" style="display:inline-block; width:320px;"
+                                  placeholder="Password" onfocus="this.value = this.value=='Password'?'':this.value;" onblur="this.value = this.value==''?'Password':this.value;">
                     </div>
+                  <div class="form-group">
+                      <label style="display:inline-block; width:250px;">Employee ID:</label>
+                      <input type="text" name="Admin_EmployeeID" style="display:inline-block; width:320px;"
+                                  placeholder="2001" onfocus="this.value = this.value=='2001'?'':this.value;" onblur="this.value = this.value==''?'2001':this.value;">
+                  </div>
                      <div class="form-group">
                         <button class="btn btn-primary" type="submit"> Update Data</button>
                     </div>

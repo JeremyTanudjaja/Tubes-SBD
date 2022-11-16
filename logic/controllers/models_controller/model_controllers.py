@@ -1,4 +1,5 @@
 import cx_Oracle as oracle
+from logic.controllers.models_controller import admin_controller
 from logic.controllers.models_controller import department_controller
 from logic.controllers.models_controller import employee_controller
 from logic.controllers.models_controller import vendor_controller
@@ -11,6 +12,7 @@ from logic.controllers.models_controller import sales_product_controller
 
 class Model_Controller:
 
+    admins = None
     departments = None
     employees = None
     vendors = None
@@ -33,6 +35,7 @@ class Model_Controller:
     def call_models(self):
         """This Method is used to Initialized all the models so that we can manipulate the data
         in the HTML, basically this is the gateway for the SQL logic to pass through"""
+        self.admins = admin_controller.Admin_Controller(cursor=self.cursor)
         self.departments = department_controller.Department_Controller(cursor=self.cursor)
         self.employees = employee_controller.Employee_Controller(cursor=self.cursor)
         self.vendors = vendor_controller.Vendor_Controller(cursor=self.cursor)
@@ -41,6 +44,6 @@ class Model_Controller:
         self.materials = material_controller.Material_Controller(cursor=self.cursor)
         self.inventories = inventory_controller.Inventory_Controller(cursor=self.cursor)
         self.sales_product = sales_product_controller.Sales_Product_Controller(cursor=self.cursor)
-        self.material_orders = material_controller.Material_Controller(cursor=self.cursor)
+        self.material_orders = material_order_controller.Material_Order_Controller(cursor=self.cursor)
 
 

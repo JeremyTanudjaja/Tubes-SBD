@@ -27,6 +27,11 @@ def home():
     print(admin_data)
     return render_template("home.html", admin_data=admin_data)
 
+@app.route("/Admin", methods=['POST', 'GET'])
+def admins():
+    admin_datas = model_controller.admins.get_admin_data()
+    print(admin_datas)
+    return render_template("page_init/admin_init.html", data=admin_datas)
 
 @app.route("/Departments", methods=['POST', 'GET'])
 def departments():
@@ -72,7 +77,7 @@ def materials():
 
 @app.route("/Material_Order", methods=['POST', 'GET'])
 def material_orders():
-    materials_order_data = model_controller.material_orders.get_material_data()
+    materials_order_data = model_controller.material_orders.get_material_order_data()
     # print(materials_order_data)
     return render_template("page_init/material_order_init.html", data=materials_order_data)
 
