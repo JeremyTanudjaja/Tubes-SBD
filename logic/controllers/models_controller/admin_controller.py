@@ -19,3 +19,14 @@ class Admin_Controller():
         # print(data)
         print(len(data))
         return data
+
+    def get_login_data(self, username):
+        login_data = []
+        self.cursor.execute(f"select admin_id, password from Admins where username = '{username}'")
+        for admin_id, password in self.cursor:
+            login_data.append({"admin_id": admin_id,
+                               "password": password})
+        if len(login_data) == 0:
+            return False
+        else:
+            return login_data

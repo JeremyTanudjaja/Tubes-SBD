@@ -5,27 +5,32 @@ from logic import app
 
 page_controller = Transition_Controller()
 model_controller = Model_Controller()
-admin_data = None
+admin_data_for_page = None
 
 
 @app.route("/", methods=['POST', 'GET'])
 def index():
     if request.method == "POST":
         request_data = request.form
-        print(f"Name:{request_data['name']}\nPass:{request_data['password']}")
-        if page_controller.login_admin(request_data):
-            global admin_data
-            admin_data = {'ID': 1001,
+        name = request_data['name']
+        # print(f"Name:{request_data['name']}\nPass:{request_data['password']}")
+        admin_data= model_controller.admins.get_login_data(username=name)
+        if admin_data == False:
+            return redirect("/")
+        # print(admin_data)
+        if page_controller.login_admin(login_data=request_data, admin_data=admin_data):
+            global admin_data_for_page
+            admin_data_for_page = {'ID': admin_data[0]['admin_id'],
                           'name': request_data['name']}
-            print(admin_data)
+            print(admin_data_for_page)
             return redirect("/home")
     return render_template("index.html")
 
 
 @app.route("/home", methods=['POST', 'GET'])
 def home():
-    print(admin_data)
-    return render_template("home.html", admin_data=admin_data)
+    print(admin_data_for_page)
+    return render_template("home.html", admin_data=admin_data_for_page)
 
 @app.route("/Admin", methods=['POST', 'GET'])
 def admins():
