@@ -10,7 +10,7 @@ class Material_Order_Controller():
         data = []
         self.cursor.execute(
             f"select order_id, vendor_id, material_id, material_name, quantity, unit_price "
-            f"from Material_Orders")
+            f"from vMaterialOrders")
         for order_id, vendor_id, material_id, material_name, quantity, unit_price in self.cursor:
             data.append({"order_id": order_id,
                          "vendor_id": vendor_id,

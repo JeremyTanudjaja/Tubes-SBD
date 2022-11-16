@@ -10,7 +10,7 @@ class Product_Controller():
         data = []
         self.cursor.execute(
             f"select product_id, product_name, unit_price, product_image_link "
-            f"from Products")
+            f"from vProducts")
         for product_id, product_name, unit_price, product_image_link in self.cursor:
             data.append({"product_id": product_id,
                          "product_name": product_name,

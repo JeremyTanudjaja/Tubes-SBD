@@ -9,7 +9,7 @@ class Admin_Controller():
         """This Method will grab all the data from the Admin table"""
         data = []
         self.cursor.execute(
-            f"select admin_id, username, password, emp_id from Admins")
+            f"select admin_id, username, password, emp_id from vAdmin")
         print(self.cursor)
         for admin_id, username, password, emp_id in self.cursor:
             data.append({"admin_id": admin_id,

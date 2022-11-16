@@ -10,7 +10,7 @@ class Inventory_Controller():
         data = []
         self.cursor.execute(
             f"select product_id, product_name, quantity "
-            f"from Inventories")
+            f"from vInventories")
         for product_id, product_name, quantity in self.cursor:
             data.append({"product_id": product_id,
                          "product_name": product_name,

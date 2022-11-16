@@ -10,7 +10,7 @@ class Vendor_Controller():
         data = []
         self.cursor.execute(
             f"select vendor_id, vendor_name, address "
-            f"from Vendors")
+            f"from vVendors")
         for vendor_id, vendor_name, address in self.cursor:
             data.append({"vendor_id": vendor_id,
                          "vendor_name": vendor_name,

@@ -9,7 +9,7 @@ class Customer_Controller():
         """This Method will grab all the data from the Customer table"""
         data = []
         self.cursor.execute(
-            f"select customer_id, customer_name, address, profile_image_link from customers")
+            f"select customer_id, customer_name, address, profile_image_link from vCustomers")
         for customer_id, customer_name, address, profile_image_link in self.cursor:
             data.append({"customer_id": customer_id,
                          "customer_name": customer_name,

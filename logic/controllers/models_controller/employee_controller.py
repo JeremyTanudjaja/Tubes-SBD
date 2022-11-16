@@ -11,7 +11,7 @@ class Employee_Controller():
         data = []
         self.cursor.execute(
             f"select emp_id, full_name, email, phone_number, hire_date, salary, photo_link, manager_id, departmen_id "
-            f"from Employees")
+            f"from vEmployees")
         for emp_id, full_name, email, phone_number, hire_date, salary, photo_link, manager_id, departmen_id in self.cursor:
             data.append({"employee_id": emp_id,
                          "employee_name": full_name,

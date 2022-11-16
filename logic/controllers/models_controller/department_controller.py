@@ -10,7 +10,7 @@ class Department_Controller():
         '''This Method will grab all the data from the department table'''
         data = []
         self.cursor.execute(
-            f"select departmen_id, departmen_name, manager_id from departments")
+            f"select departmen_id, departmen_name, manager_id from vDepartments")
         for departmen_id, departmen_name, manager_id in self.cursor:
             # print(f"{employee_id} | {first_name} {last_name}")
             data.append({"dept_id": departmen_id,
