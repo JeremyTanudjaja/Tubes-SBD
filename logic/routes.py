@@ -10,20 +10,21 @@ admin_data_for_page = None
 
 @app.route("/", methods=['POST', 'GET'])
 def index():
+    global admin_data_for_page
     if request.method == "POST":
         request_data = request.form
         name = request_data['name']
         # print(f"Name:{request_data['name']}\nPass:{request_data['password']}")
-        admin_data= model_controller.admins.get_login_data(username=name)
+        admin_data = model_controller.admins.get_login_data(username=name)
         if admin_data == False:
             return redirect("/")
         # print(admin_data)
         if page_controller.login_admin(login_data=request_data, admin_data=admin_data):
-            global admin_data_for_page
             admin_data_for_page = {'ID': admin_data[0]['admin_id'],
-                          'name': request_data['name']}
+                                   'name': request_data['name']}
             print(admin_data_for_page)
             return redirect("/home")
+    admin_data_for_page = None
     return render_template("index.html")
 
 
@@ -32,11 +33,13 @@ def home():
     print(admin_data_for_page)
     return render_template("home.html", admin_data=admin_data_for_page)
 
+
 @app.route("/Admin", methods=['POST', 'GET'])
 def admins():
     admin_datas = model_controller.admins.get_admin_data()
     print(admin_datas)
     return render_template("page_init/admin_init.html", data=admin_datas)
+
 
 @app.route("/Departments", methods=['POST', 'GET'])
 def departments():

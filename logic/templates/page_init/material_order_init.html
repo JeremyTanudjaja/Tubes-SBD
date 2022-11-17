@@ -75,6 +75,10 @@
          placeholder="500" onfocus="this.value = this.value=='500'?'':this.value;" onblur="this.value = this.value==''?'500':this.value;">
     <br><br>
 
+    <label style="display:inline-block; width:250px;">Date </label>
+  <input type="date" name="Date" style="display:inline-block; width:320px;"
+         placeholder="22-11-2022" onfocus="this.value = this.value=='22-11-2022'?'':this.value;" onblur="this.value = this.value==''?'22-11-2022':this.value;">
+    <br><br>
 
   <input type="submit" value="Create" name="Create_Order"  id="Create_Order" style="width:100px;margin-right:30px; margin-left:90px;">
 
@@ -92,7 +96,8 @@
       <td>Material ID</td>
       <td>Material Name</td>
       <td>Quantity</td>
-      <td>Unit Price</td>
+      <td>Price</td>
+        <td>Date</td>
       <td>Action</td>
     </tr>
   </thead>
@@ -106,6 +111,7 @@
       <td>{{data[row_num]['material_name']}}</td>
       <td>{{data[row_num]['quantity']}}</td>
       <td>{{data[row_num]['unit_price']}}</td>
+       <td>{{data[row_num]['order_date']}}</td>
       <td>
           <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">Edit</a>
           <a href="" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete')">Delete</a>
