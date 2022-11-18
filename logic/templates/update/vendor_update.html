@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index_style.css') }}"><!--{{ url_for('static', filename='css/index_styles.css') }}-->
+         
+    <!--<title>Login & Registration Form</title-->
+</head>
+<body>
+    
+    <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Update Vendor</span>
+                <form id = "login_form" action="{{ url_for('update_vendor', id=id) }}" method="POST">
+                    <div class="input-field">
+                        <input type="text" class="form-control" name="update_vendor_name"
+                             placeholder="Washington Steel" onfocus="this.value = this.value=='Washington Steel'?'':this.value;" onblur="this.value = this.value==''?'Washington Steel':this.value;">
+                    <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" class="form-control" name="update_vendor_address"
+                             placeholder="19th Downing Street" onfocus="this.value = this.value=='19th Downing Street'?'':this.value;" onblur="this.value = this.value==''?'19th Downing Street':this.value;">
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+
+
+                    <div class="input-field button">
+                        <input type="submit" value="Update" name="update">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+       const container = document.querySelector(".container"),
+      pwShowHide = document.querySelectorAll(".showHidePw"),
+      pwFields = document.querySelectorAll(".password"),
+      login = document.querySelector(".login-link");
+
+
+
+
+    // js code to appear login form
+    // login.addEventListener("click", ( )=>{
+    //     container.classList.remove("active");
+    // });
+
+    </script>
+
+</body>
+</html>

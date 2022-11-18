@@ -1,9 +1,10 @@
 class Sales_Product_Controller():
 
-    def __init__(self, cursor):
+    def __init__(self, cursor, oracle):
         """Initialize the Sales Product controller"""
         print("connection to Sales Product Database succeeded")
         self.cursor = cursor
+        self.oracle = oracle
 
     def get_sales_product_data(self):
         """This Method will grab all the data from the Sales Product table"""

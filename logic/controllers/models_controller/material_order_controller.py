@@ -1,9 +1,10 @@
 class Material_Order_Controller():
 
-    def __init__(self, cursor):
+    def __init__(self, cursor, oracle):
         """Initialize the Material Order controller"""
         print("connection to Material Order Database succeeded")
         self.cursor = cursor
+        self.oracle = oracle
 
     def get_material_order_data(self):
         """This Method will grab all the data from the Material Order table"""

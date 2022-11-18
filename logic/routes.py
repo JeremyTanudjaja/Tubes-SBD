@@ -22,7 +22,7 @@ def index():
         if page_controller.login_admin(login_data=request_data, admin_data=admin_data):
             admin_data_for_page = {'ID': admin_data[0]['admin_id'],
                                    'name': request_data['name']}
-            print(admin_data_for_page)
+            # print(admin_data_for_page)
             return redirect("/home")
     admin_data_for_page = None
     return render_template("index.html")
@@ -30,24 +30,46 @@ def index():
 
 @app.route("/home", methods=['POST', 'GET'])
 def home():
-    print(admin_data_for_page)
+    # print(admin_data_for_page)
     return render_template("home.html", admin_data=admin_data_for_page)
 
 
+# ADMIN
 @app.route("/Admin", methods=['POST', 'GET'])
 def admins():
+    # if request.method == 'POST':
+    #     print(request.form)
+    #     request_data = request.form
+    #     result = model_controller.admins.insert_new_admin(request_data)
+    #     print(result)
     admin_datas = model_controller.admins.get_admin_data()
     print(admin_datas)
     return render_template("page_init/admin_init.html", data=admin_datas)
 
 
+# ----------------------------------------------
+
+
+# DEPARTMENT
 @app.route("/Departments", methods=['POST', 'GET'])
 def departments():
-    dept_data = model_controller.departments.get_department_data()
     # print(dept_data)
+    dept_data = model_controller.departments.get_department_data()
     return render_template("page_init/departments_init.html", dept_data=dept_data)
 
 
+@app.route("/someshit", methods=['POST', 'GET'])
+def insert_department():
+    if request.method == 'POST':
+        request_data = request.form
+        result = model_controller.departments.insert_new_department(request_data)
+        print(result)
+        return redirect("/home")
+
+
+# ------------------------------------------------------
+
+# EMPLOYEES
 @app.route("/Employees", methods=['POST', 'GET'])
 def employees():
     employee_data = model_controller.employees.get_employee_data()
@@ -55,6 +77,9 @@ def employees():
     return render_template("page_init/employee_init.html", data=employee_data)
 
 
+# ----------------------------------------------------------
+
+# PRODUCTS
 @app.route("/Product", methods=['POST', 'GET'])
 def products():
     product_data = model_controller.products.get_product_data()
@@ -62,6 +87,9 @@ def products():
     return render_template("page_init/products_init.html", data=product_data)
 
 
+# ------------------------------------------------------------------
+
+# INVENTORIES
 @app.route("/Inventories", methods=['POST', 'GET'])
 def inventories():
     inventory_data = model_controller.inventories.get_inventory_data()
@@ -69,6 +97,9 @@ def inventories():
     return render_template("page_init/inventories_init.html", data=inventory_data)
 
 
+# -------------------------------------------------------------
+
+# VENDORS
 @app.route("/Vendor", methods=['POST', 'GET'])
 def vendors():
     vendor_data = model_controller.vendors.get_vendor_data()
@@ -76,6 +107,30 @@ def vendors():
     return render_template("page_init/vendor_init.html", data=vendor_data)
 
 
+@app.route("/insert_vendor", methods=["POST", "GET"])
+def insert_vendor():
+    if request.method == "POST":
+        request_data = request.form
+        result = model_controller.vendors.insert_new_vendor(request_data)
+        print(result)
+    return redirect("/home")
+
+
+@app.route("/update_vendor/<id>", methods=["POST", "GET"])
+def update_vendor(id):
+    print(id)
+    return render_template("update/vendor_update.html", id=id)
+
+
+@app.route("/delete_vendor/<id>", methods=["POST", "GET"])
+def delete_vendor(id):
+    print(id)
+    return redirect("/home")
+
+
+# --------------------------------------------------------------------
+
+# MATERIALS
 @app.route("/Material", methods=['POST', 'GET'])
 def materials():
     material_data = model_controller.materials.get_material_data()
@@ -83,6 +138,9 @@ def materials():
     return render_template("page_init/materials_init.html", data=material_data)
 
 
+# -------------------------------------------------------------------
+
+# MATERIAL ORDERS
 @app.route("/Material_Order", methods=['POST', 'GET'])
 def material_orders():
     materials_order_data = model_controller.material_orders.get_material_order_data()
@@ -90,6 +148,9 @@ def material_orders():
     return render_template("page_init/material_order_init.html", data=materials_order_data)
 
 
+# ------------------------------------------------------------------
+
+# CUSTOMER
 @app.route("/Customer", methods=['POST', 'GET'])
 def customers():
     customer_data = model_controller.customers.get_customer_data()
@@ -97,8 +158,12 @@ def customers():
     return render_template("page_init/customer_init.html", data=customer_data)
 
 
+# ------------------------------------------------------------------
+
+# SALES
 @app.route("/Sales", methods=['POST', 'GET'])
 def sales_product():
     sales_data = model_controller.sales_product.get_sales_product_data()
     # print(sales_data)
     return render_template("page_init/sales_product_init.html", data=sales_data)
+# ---------------------------------------------------------------

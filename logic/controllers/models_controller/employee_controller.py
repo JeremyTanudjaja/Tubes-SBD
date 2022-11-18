@@ -1,10 +1,11 @@
 
 class Employee_Controller():
 
-    def __init__(self, cursor):
+    def __init__(self, cursor, oracle):
         '''Initialize the Department controller'''
         print("connection to Employee succeeded")
         self.cursor = cursor
+        self.oracle = oracle
 
     def get_employee_data(self):
         '''This Method will grab all the data from the department table'''

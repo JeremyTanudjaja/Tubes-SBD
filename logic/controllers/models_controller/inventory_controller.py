@@ -1,9 +1,10 @@
 class Inventory_Controller():
 
-    def __init__(self, cursor):
+    def __init__(self, cursor, oracle):
         """Initialize the Inventory controller"""
         print("connection to Inventory succeeded")
         self.cursor = cursor
+        self.oracle = oracle
 
     def get_inventory_data(self):
         """This Method will grab all the data from the inventory table"""

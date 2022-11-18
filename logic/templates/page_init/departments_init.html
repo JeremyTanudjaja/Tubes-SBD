@@ -49,10 +49,10 @@
 
 <p style='font: 54px bold;'>Department Database</p><br><br>
 
-<form method="post" enctype="multipart/form-data" action="">
+<form method="post" action="{{ url_for('insert_department') }}">
 
   <label style="display:inline-block; width:250px;">New Department Name:</label>
-  <input type="text" name="Department_Name" style="display:inline-block; width:320px;"
+  <input type="text" name="Department_Name" id="Department_Name" style="display:inline-block; width:320px;"
                                    placeholder="Accounting " onfocus="this.value = this.value=='Accounting'?'':this.value;" onblur="this.value = this.value==''?'Accounting':this.value;">
     <br><br>
 

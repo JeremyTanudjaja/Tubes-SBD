@@ -1,9 +1,10 @@
 class Product_Controller():
 
-    def __init__(self, cursor):
+    def __init__(self, cursor, oracle):
         """Initialize the Product controller"""
         print("connection to Product succeeded")
         self.cursor = cursor
+        self.oracle = oracle
 
     def get_product_data(self):
         """This Method will grab all the data from the product table"""

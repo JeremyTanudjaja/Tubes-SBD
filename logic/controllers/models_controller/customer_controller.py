@@ -1,9 +1,10 @@
 class Customer_Controller():
 
-    def __init__(self, cursor):
+    def __init__(self, cursor, oracle):
         """Initialize the Customer controller"""
         print("connection to Customer succeeded")
         self.cursor = cursor
+        self.oracle = oracle
 
     def get_customer_data(self):
         """This Method will grab all the data from the Customer table"""
