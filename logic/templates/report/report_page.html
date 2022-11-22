@@ -1,10 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Page</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/report.css')}}" />
+  </head>
 
-</body>
+  <body>
+  <div class="content" style="padding-top:10rem; padding-bottom:10rem;">
+    <div class="title-bar" >
+      <div id="back_to_home">
+        <a href ="{{url_for('home')}}" style="color:black">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAARtJREFUaEPt19ERwiAQBNBNJ9qJdqKVaSmWYikOH8xkHCBwd8CSuXxLZt8tkWTD4te2eH44YHaD3oA3oJyAb6HEAG8APsrBVi+3buAB4AXgDeBZnULxQ0tADB/jDEFYAf7DR8S993ayAOTChy0UWuh6aQFTw4fJaADTw2sAFOGlAJrwEgBV+FYAXfgWAGX4WgBt+BoAdfgjQC5815O1cPPkmZU7yNjCZ4d9WkAQs7XQtIXiVlz6IV4CUfs2SttELaD0TAz5cMn9vbYAKBGtADqEBECFkAJoEBoABUILmI6wAJQQVwDfnq+vVoAUYsj5YAnYI4aEP/qgkTZ/6b1t9sGsG5CixescIB6d0UJvwGiQ4tt4A+LRGS1cvoEf3706Me06IuQAAAAASUVORK5CYII="/>
+        </a>
+      </div>
+        <h1 style="text-align:center; font-size:8rem; padding-bottom:8rem;">Report Page</h1>
+      </div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="card">
+          <img class="card-img" src="{{url_for('static', filename='res/report_pic/total_unit_sales.jpg')}}" alt="Rome" />
+          <div class="card-content">
+            <h1 class="card-header">Total Sales</h1>
+            <p class="card-text">
+              Total Sales of Company Product as of now is $
+              <strong> architecture</strong>, it is the SUM
+              of every product sold
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="card">
+          <img
+            class="card-img"
+            src="{{url_for('static', filename='res/report_pic/sales_logo.jpg')}}"
+            alt="Grand Canyon"
+          />
+          <div class="card-content">
+            <h1 class="card-header">Total Unit Sales</h1>
+            <p class="card-text">
+              This is the count of all the products that Bike Rush has sold
+              as of now. The count is about:
+              <strong>towering cliffs</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="card">
+          <img class="card-img" src="{{url_for('static', filename='res/report_pic/material_delivery.jpg')}}" alt="Maldives" />
+          <div class="card-content">
+            <h1 class="card-header">Material Delivery</h1>
+            <p class="card-text">
+              This is the count of all the material orders that
+              Bike Rush has done for its procurement purposes
+              The count is: <strong>tt</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="card">
+          <img class="card-img" src="{{url_for('static', filename='res/report_pic/material_payment.jpg')}}" alt="Rome" />
+          <div class="card-content">
+            <h1 class="card-header">Material Payment</h1>
+            <p class="card-text">
+              For each procurement there is a cost
+              that needs to be paid. This is the total
+              sum of all the funds for procurement:
+              <strong> architecture</strong>
+            </p>
+          </div>
+        </div>
+        </div>
+      <div class="grid-item">
+        <div class="card">
+          <img
+            class="card-img"
+            src="{{url_for('static', filename='res/report_pic/total_employee.jpeg')}}"
+            alt="Grand Canyon"
+          />
+          <div class="card-content">
+            <h1 class="card-header">Total Employee</h1>
+            <p class="card-text">
+              Bike Rush has employed many people through
+              out the years of its existence, as of now
+              it has: <strong>cliffs</strong> people that
+              works here.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
 </html>

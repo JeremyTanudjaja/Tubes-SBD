@@ -512,3 +512,12 @@ def delete_sales_product(id):
     print(result)
     return redirect('/home')
 # ---------------------------------------------------------------
+
+
+# ---------------------------------------------------------------
+# Routes for Report
+@app.route("/Report_Dashboard")
+def load_report_page():
+    return render_template('report/report_page.html')
+
+
