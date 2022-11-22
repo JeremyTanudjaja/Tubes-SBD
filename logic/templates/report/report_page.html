@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Report Page</title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{url_for('static', filename='css/report.css')}}" />
   </head>
 
   <body>
+  <div class="clickcard">
   <div class="content" style="padding-top:10rem; padding-bottom:10rem;">
     <div class="title-bar" >
       <div id="back_to_home">
@@ -18,9 +20,10 @@
       </div>
         <h1 style="text-align:center; font-size:8rem; padding-bottom:8rem;">Report Page</h1>
       </div>
+
     <div class="grid">
       <div class="grid-item">
-        <div class="card">
+        <div class="card" >
           <img class="card-img" src="{{url_for('static', filename='res/report_pic/total_unit_sales.jpg')}}" alt="Rome" />
           <div class="card-content">
             <h1 class="card-header">Total Sales</h1>
@@ -29,11 +32,12 @@
               <strong> architecture</strong>, it is the SUM
               of every product sold
             </p>
+            <button class="card-btn" id="AnnualDeptSal">Show <span>&rarr;</span></button>
           </div>
         </div>
       </div>
       <div class="grid-item">
-        <div class="card">
+        <div class="card" >
           <img
             class="card-img"
             src="{{url_for('static', filename='res/report_pic/sales_logo.jpg')}}"
@@ -46,11 +50,12 @@
               as of now. The count is about:
               <strong>towering cliffs</strong>.
             </p>
+            <button class="card-btn" id="AverageSales">Show <span>&rarr;</span></button>
           </div>
         </div>
       </div>
       <div class="grid-item">
-        <div class="card">
+        <div class="card" >
           <img class="card-img" src="{{url_for('static', filename='res/report_pic/material_delivery.jpg')}}" alt="Maldives" />
           <div class="card-content">
             <h1 class="card-header">Material Delivery</h1>
@@ -59,6 +64,7 @@
               Bike Rush has done for its procurement purposes
               The count is: <strong>tt</strong>
             </p>
+            <button class="card-btn" id="OrderAvg">Show <span>&rarr;</span></button>
           </div>
         </div>
       </div>
@@ -73,11 +79,12 @@
               sum of all the funds for procurement:
               <strong> architecture</strong>
             </p>
+            <button class="card-btn" id="ProductSales">Show <span>&rarr;</span></button>
           </div>
         </div>
         </div>
       <div class="grid-item">
-        <div class="card">
+        <div class="card" >
           <img
             class="card-img"
             src="{{url_for('static', filename='res/report_pic/total_employee.jpeg')}}"
@@ -91,10 +98,83 @@
               it has: <strong>cliffs</strong> people that
               works here.
             </p>
+            <button class="card-btn" id="ViewManager">Show <span>&rarr;</span></button>
           </div>
         </div>
       </div>
     </div>
     </div>
+  </div>
+  <div>
+ <section class="home-section" id="table" style=" padding-bottom:5rem;">
+      <div class="text"></div>
+  </section>
+  </div>
   </body>
+<script>
+  //ajax Annual Dept Sal
+    $(document).ready(function(){
+        $("#AnnualDeptSal").click(function(){
+             $.ajax({
+                url:'/AnnualDeptSal',
+                type:'POST',
+                success: function(response){
+                    $('#table').html(response)
+                }
+            })
+        });
+      });
+
+      //ajax Average Sales
+    $(document).ready(function(){
+        $("#AverageSales").click(function(){
+             $.ajax({
+                url:'/AverageSales',
+                type:'POST',
+                success: function(response){
+                    $('#table').html(response)
+                }
+            })
+        });
+      });
+
+      //ajax Order Average
+    $(document).ready(function(){
+        $("#OrderAvg").click(function(){
+             $.ajax({
+                url:'/OrderAvg',
+                type:'POST',
+                success: function(response){
+                    $('#table').html(response)
+                }
+            })
+        });
+      });
+
+      //ajax Product Sales
+    $(document).ready(function(){
+        $("#ProductSales").click(function(){
+             $.ajax({
+                url:'/ProductSales',
+                type:'POST',
+                success: function(response){
+                    $('#table').html(response)
+                }
+            })
+        });
+      });
+
+      //ajax View Manager
+    $(document).ready(function(){
+        $("#ViewManager").click(function(){
+             $.ajax({
+                url:'/ViewManager',
+                type:'POST',
+                success: function(response){
+                    $('#table').html(response)
+                }
+            })
+        });
+      });
+</script>
 </html>

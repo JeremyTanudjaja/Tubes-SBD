@@ -9,6 +9,7 @@ from logic.controllers.models_controller import material_controller
 from logic.controllers.models_controller import inventory_controller
 from logic.controllers.models_controller import material_order_controller
 from logic.controllers.models_controller import sales_product_controller
+from logic.controllers.models_controller import report_view
 
 class Model_Controller:
 
@@ -22,6 +23,7 @@ class Model_Controller:
     inventories = None
     material_orders = None
     sales_product = None
+    report_view = None
 
     def __init__(self):
         """Initialize connection to oracle database and creates a cursor"""
@@ -46,5 +48,5 @@ class Model_Controller:
         self.inventories = inventory_controller.Inventory_Controller(cursor=self.cursor, oracle=self.oracle)
         self.sales_product = sales_product_controller.Sales_Product_Controller(cursor=self.cursor, oracle=self.oracle)
         self.material_orders = material_order_controller.Material_Order_Controller(cursor=self.cursor, oracle=self.oracle)
-
+        self.report_view = report_view.Report_Controller(cursor=self.cursor, oracle=self.oracle)
 

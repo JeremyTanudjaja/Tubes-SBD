@@ -9,8 +9,10 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
 }
-
-body {
+body{
+    background-color: #E4E9F7;
+}
+.clickcard{
   background-color: #E4E9F7;
   font-family: "Poppins", sans-serif;
   display: flex;

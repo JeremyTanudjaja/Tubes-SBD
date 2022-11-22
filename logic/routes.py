@@ -520,4 +520,24 @@ def delete_sales_product(id):
 def load_report_page():
     return render_template('report/report_page.html')
 
+@app.route("/AnnualDeptSal", methods=['POST', 'GET'])
+def annual_dept_sal():
+    return render_template('report/report_ajax/AnnualDeptSal.html')
+
+@app.route("/AverageSales", methods=['POST', 'GET'])
+def average_sales():
+    return render_template('report/report_ajax/AverageSales.html')
+
+@app.route("/OrderAvg", methods=['POST', 'GET'])
+def order_average():
+    return render_template('report/report_ajax/OrderAvg.html')
+
+@app.route("/ProductSales", methods=['POST', 'GET'])
+def product_sales():
+    return render_template('report/report_ajax/ProductSales.html')
+
+@app.route("/ViewManager", methods=['POST', 'GET'])
+def view_manager():
+    return render_template('report/report_ajax/ViewManager.html')
+
 
