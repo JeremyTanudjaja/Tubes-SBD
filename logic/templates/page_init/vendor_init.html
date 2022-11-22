@@ -79,7 +79,7 @@
       <td>Vendor ID</td>
       <td>Vendor Name</td>
       <td>Address</td>
-      <td>Action</td>
+      <td colspan="2" style="text-align:center;">Action</td>
     </tr>
   </thead>
   <tbody>
@@ -90,7 +90,14 @@
       <td>{{data[row_num]['vendor_name']}}</td>
       <td>{{data[row_num]['address']}}</td>
       <td>
-          <a  class="btn btn-warning btn-xs" id="edit"  href="/update_vendor/{{data[row_num]['vendor_id']}}">Edit</a>
+          <form method="post" action="{{url_for('load_update_vendor')}}">
+              <input type="hidden" name="vendor_id" value="{{data[row_num]['vendor_id']}}">
+              <input type="hidden" name="vendor_name" value="{{data[row_num]['vendor_name']}}">
+              <input type="hidden" name="address" value="{{data[row_num]['address']}}">
+              <input type="submit" class="btn btn-warning btn-xs" id="edit" value="edit">
+          </form>
+      </td>
+       <td>
           <a  class="btn btn-danger btn-xs" id="delete" onclick="return confirm('Are You Sure To Delete')" href="{{url_for('delete_vendor', id=data[row_num]['vendor_id'])}}">Delete</a>
       </td>
     </tr>

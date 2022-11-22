@@ -47,4 +47,30 @@ class Admin_Controller():
         else:
             return "Data Successfully Added"
 
+    def update_admin(self, id, data):
+        username = data['Admin_Username']
+        password = data['Admin_Password']
+        emp_id = data['Admin_EmployeeID']
+        admin_id = id
+        try:
+            self.cursor.execute(f"Update admins set username='{username}', password ='{password}', emp_id='{emp_id}'"
+                                f"where ADMIN_ID = {admin_id}")
+            self.cursor.execute("commit")
+        except self.oracle.DatabaseError as e:
+            error_message = f"{e}"
+            return error_message
+        else:
+            return "Data Successfully Updated"
+
+    def delete_admin(self, id):
+        """Delete a Vendor From Reality"""
+        admin_id = id
+        try:
+            self.cursor.execute(f"Delete from admins where ADMIN_ID = {admin_id}")
+            self.cursor.execute("commit")
+        except self.oracle.DatabaseError as e:
+            error_message = f"{e}"
+            return error_message
+        else:
+            return "Data Successfully Deleted"
 

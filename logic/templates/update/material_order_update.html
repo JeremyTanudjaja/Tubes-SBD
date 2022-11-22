@@ -5,6 +5,41 @@
     <title>Title</title>
 </head>
 <body>
+<form action="{{url_for('update_material_order')}}" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="Order_ID" value="{{data['Order_ID']}}">
+                    <div class="form-group">
+                        <label> Vendor ID: </label>
+                        <input type="text" class="form-control" name="Vendor_ID" value="{{data['Vendor_ID']}}">
+
+                    </div>
+                    <div class="form-group">
+                        <label> Material ID: </label>
+                        <input type="text" class="form-control" name="Material_ID" value="{{data['Material_ID']}}">
+
+                    </div>
+                      <div class="form-group">
+                        <label> Material Name: </label>
+                        <input type="text" class="form-control" name="Material_Name" value="{{data['Material_Name']}}">
+
+                    </div>
+                    <div class="form-group">
+                        <label> Quantity: </label>
+                        <input type="text" class="form-control" name="Quantity" value="{{data['Quantity']}}">
+
+                    </div>
+                      <div class="form-group">
+                        <label> Price: </label>
+                        <input type="text" class="form-control" name="Unit_Price" value="{{data['Unit_Price']}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label> Order Date: </label>
+                        <input type="text" value="{{data['Order_Date']}}" name="Date" style="display:inline-block; width:320px;">
+                    </div>
+                     <div class="form-group">
+                        <button class="btn btn-primary" type="submit"> Update Data</button>
+                    </div>
+                </form>
 
 </body>
 </html>

@@ -48,7 +48,7 @@
 <div class = "" style="padding:50px;">
 <p style='font: 54px bold;'>Material Orders Database</p><br><br>
 
-<form method="post" enctype="multipart/form-data" action=" ">
+<form method="post" enctype="multipart/form-data" action="{{url_for('insert_material_order')}}">
 
   <label style="display:inline-block; width:250px;">Vendor ID:</label>
   <input type="text" name="Vendor_ID" style="display:inline-block; width:320px;"
@@ -98,7 +98,7 @@
       <td>Quantity</td>
       <td>Price</td>
         <td>Date</td>
-      <td>Action</td>
+      <td colspan="2" style="text-align:center;">Action</td>
     </tr>
   </thead>
   <tbody>
@@ -113,60 +113,24 @@
       <td>{{data[row_num]['unit_price']}}</td>
        <td>{{data[row_num]['order_date']}}</td>
       <td>
-          <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">Edit</a>
-          <a href="" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete')">Delete</a>
+          <form action="{{url_for('load_update_material_order')}}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="Order_ID" value="{{data[row_num]['order_id']}}">
+                <input type="hidden" name="Vendor_ID" value="{{data[row_num]['vendor_id']}}">
+                <input type="hidden" name="Material_ID" value="{{data[row_num]['material_id']}}">
+                <input type="hidden" name="Material_Name" value="{{data[row_num]['material_name']}}">
+                <input type="hidden" name="Quantity" value="{{data[row_num]['quantity']}}">
+                <input type="hidden" name="Unit_Price" value="{{data[row_num]['unit_price']}}">
+                <input type="hidden" name="Order_Date" value="{{data[row_num]['order_date']}}">
+                <button type="submit" class="btn btn-warning btn-xs" >Edit</button>
+          </form>
+      </td>
+       <td>
+          <a href="{{url_for('delete_material_order', id=data[row_num]['order_id'])}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete')">Delete</a>
       </td>
     </tr>
   {% endfor %}
   </tbody>
 </table>
-</div>
-<!--Update Pop Up-->
-<div id="modaledit" class="modal fade" role="dialog" data-backdrop="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"></button>
-                <h4 class="modal-title">Please Update Data</h4>
-            </div>
-            <div class="modal-body">
-                <!--Edit Form-->
-                <form action="" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label> Vendor ID: </label>
-                        <input type="text" class="form-control" name="update_order_vendor"
-                                                              placeholder="3001" onfocus="this.value = this.value=='3001'?'':this.value;" onblur="this.value = this.value==''?'3001':this.value;">
-                    </div>
-                    <div class="form-group">
-                        <label> Material ID: </label>
-                        <input type="text" class="form-control" name="update_order_material_id"
-                                                              placeholder="6001" onfocus="this.value = this.value=='6001'?'':this.value;" onblur="this.value = this.value==''?'6001':this.value;">
-                    </div>
-                      <div class="form-group">
-                        <label> Material Name: </label>
-                        <input type="text" class="form-control" name="update_order_material_name"
-                                                              placeholder="Steel Pipe" onfocus="this.value = this.value=='Steel Pipe'?'':this.value;" onblur="this.value = this.value==''?'Steel Pipes':this.value;">
-                    </div>
-                    <div class="form-group">
-                        <label> Quantity: </label>
-                        <input type="text" class="form-control" name="update_order_quantity"
-                                                              placeholder="20" onfocus="this.value = this.value=='20'?'':this.value;" onblur="this.value = this.value==''?'20':this.value;">
-                    </div>
-                      <div class="form-group">
-                        <label> Price: </label>
-                        <input type="text" class="form-control" name="update_order_price"
-                                                              placeholder="10000" onfocus="this.value = this.value=='10000'?'':this.value;" onblur="this.value = this.value==''?'10000':this.value;">
-                    </div>
-                     <div class="form-group">
-                        <button class="btn btn-primary" type="submit"> Update Data</button>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

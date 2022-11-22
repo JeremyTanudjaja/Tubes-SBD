@@ -5,6 +5,26 @@
     <title>Title</title>
 </head>
 <body>
+ <form action="{{url_for('update_admin')}}" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="Admin_ID" value="{{data['Admin_ID']}}">
+                    <div class="form-group">
+                      <label style="display:inline-block; width:250px;">New Username:</label>
+                      <input type="text" name="Admin_Username" value="{{data['Username']}}" style="display:inline-block; width:320px;">
 
+                    </div>
+                    <div class="form-group">
+                      <label style="display:inline-block; width:250px;">Password:</label>
+                      <input type="text" name="Admin_Password" value="{{data['Password']}}" style="display:inline-block; width:320px;">
+
+                    </div>
+                  <div class="form-group">
+                      <label style="display:inline-block; width:250px;">Employee ID:</label>
+                      <input type="text" name="Admin_EmployeeID" value="{{data['Emp_ID']}}" style="display:inline-block; width:320px;">
+
+                  </div>
+                     <div class="form-group">
+                        <button class="btn btn-primary" type="submit"> Update Data</button>
+                    </div>
+                </form>
 </body>
 </html>

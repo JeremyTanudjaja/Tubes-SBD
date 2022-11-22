@@ -5,6 +5,23 @@
     <title>Title</title>
 </head>
 <body>
-
+<form action="{{url_for('update_product')}}" method="POST" enctype="multipart/form-data">
+    <input type="hidden" value="{{data['Product_ID']}}" name="Product_ID">
+    <div class="form-group">
+        <label> Product Name: </label>
+        <input type="text" class="form-control" name="Product_Name" value="{{data['Product_Name']}}">
+    </div>
+    <div class="form-group">
+        <label> Unit Price: </label>
+        <input type="text" class="form-control" name="Product_Price" value="{{data['Product_Price']}}">
+    </div>
+    <div class="form-group">
+        <label> Product Image: </label>
+        <input type="file" class="form-control" name="Product_Photo" value="{{data['Product_Photo']}}">
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit"> Update Data</button>
+    </div>
+</form>
 </body>
 </html>

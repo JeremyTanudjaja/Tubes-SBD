@@ -20,6 +20,50 @@ class Sales_Product_Controller():
                          "status": status,
                          "quantity": quantity,
                          "order_date": order_date})
-        # print(data)
         print(len(data))
         return data
+
+
+    def insert_new_sales_product(self, data):
+        """Inserting a new product sales"""
+        # SAVING sales product DATA
+        try:
+            print("masuk insertion")
+            self.cursor.execute(f"CALL SalesProduct('{data['Customer_ID']}','{data['Product_ID']}','{data['Product_Name']}',"
+                                f"'{data['Status']}','{data['Product_Quantity']}', '{data['Order_Date']}')")
+            self.cursor.execute("commit")
+        except self.oracle.DatabaseError as e:
+            error_message = f"{e}"
+            return error_message
+        else:
+            return "Data Successfully Added"
+
+    def update_sales_product(self, id, data):
+        """Update Sales Product"""
+        sales_id = id
+        # Check if Date is empty or not
+        date = data['Order_Date'].split(' ')[0]
+
+        # Update Data
+        try:
+            print("masuk Update")
+            self.cursor.execute(f"CALL UpdSales ('{sales_id}','{data['Customer_ID']}','{data['Product_ID']}','{data['Product_Name']}',"
+                                f"'{data['Status']}','{data['Product_Quantity']}','{date}')")
+            self.cursor.execute("commit")
+        except self.oracle.DatabaseError as e:
+            error_message = f"{e}"
+            return error_message
+        else:
+            return "Data Successfully Updated"
+
+    def delete_sales_product(self, id):
+        """Delete a Sales Product From Reality"""
+        sales_id = id
+        try:
+            self.cursor.execute(f"Delete from sales_products where SALES_ID = {sales_id}")
+            self.cursor.execute("commit")
+        except self.oracle.DatabaseError as e:
+            error_message = f"{e}"
+            return error_message
+        else:
+            return "Data Successfully Deleted"

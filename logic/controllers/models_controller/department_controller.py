@@ -32,3 +32,30 @@ class Department_Controller():
             return error_message
         else:
             return "Data Successfully Added"
+
+    def delete_department(self, id):
+        """Delete a Department From Reality"""
+        dept_id = id
+        try:
+            self.cursor.execute(f"Delete from departments where departmen_ID = {dept_id}")
+            self.cursor.execute("commit")
+        except self.oracle.DatabaseError as e:
+            error_message = f"{e}"
+            return error_message
+        else:
+            return "Data Successfully Deleted"
+
+    def update_department(self, id, data):
+        """Update Department"""
+        dept_name = data['Department_Name']
+        manager_id = data['Manager_ID']
+        dept_id = id
+        try:
+            self.cursor.execute(f"Update departments set departmen_name='{dept_name}', manager_id ='{manager_id}'"
+                                f"where departmen_ID = {dept_id}")
+            self.cursor.execute("commit")
+        except self.oracle.DatabaseError as e:
+            error_message = f"{e}"
+            return error_message
+        else:
+            return "Data Successfully Updated"

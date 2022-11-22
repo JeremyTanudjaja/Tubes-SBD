@@ -79,7 +79,7 @@
       <td>Department ID</td>
       <td>Department Name</td>
       <td>Manager ID</td>
-      <td>Action</td>
+      <td colspan="2" style="text-align:center;">Action</td>
     </tr>
   </thead>
   <tbody>
@@ -91,45 +91,20 @@
       <td>{{dept_data[row_num]['dept_name']}}</td>
       <td>{{dept_data[row_num]['manager_id']}}</td>
       <td>
-          <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">Edit</a>
-          <a href="" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete')">Delete</a>
+          <form action="{{url_for('load_update_department')}}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="Department_ID" value="{{dept_data[row_num]['dept_id']}}">
+                <input type="hidden" name="Department_Name" value="{{dept_data[row_num]['dept_name']}}">
+                <input type="hidden" name="Manager_ID" value="{{dept_data[row_num]['manager_id']}}">
+                <button type="submit" class="btn btn-warning btn-xs" >Edit</button>
+          </form>
+      </td>
+        <td>
+          <a href="{{url_for('delete_department', id=dept_data[row_num]['dept_id'])}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete')">Delete</a>
       </td>
     </tr>
   {% endfor %}
   </tbody>
 </table>
-</div>
-<!--Update Pop Up-->
-<div id="modaledit" class="modal fade" role="dialog" data-backdrop="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"></button>
-                <h4 class="modal-title">Please Update Data</h4>
-            </div>
-            <div class="modal-body">
-                <!--Edit Form-->
-                <form action="" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label> Department Name: </label>
-                        <input type="text" class="form-control" name="update_department_name"
-                               placeholder="Accounting " onfocus="this.value = this.value=='Accounting'?'':this.value;" onblur="this.value = this.value==''?'Accounting':this.value;">
-                    </div>
-                    <div class="form-group">
-                        <label> Manager ID: </label>
-                        <input type="text" class="form-control" name="update_manager_id"
-                               placeholder="2001" onfocus="this.value = this.value=='2001'?'':this.value;" onblur="this.value = this.value==''?'2001':this.value;">
-                    </div>
-                     <div class="form-group">
-                        <button class="btn btn-primary" type="submit"> Update Data</button>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
