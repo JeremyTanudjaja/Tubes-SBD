@@ -55,11 +55,13 @@
   </thead>
   <tbody>
     <!-- Table Content Here, create a while loop to get ze tables-->
+    {% for row_num in range(data|length): %}
     <tr>
-      <td>Content</td>
-      <td>Content</td>
-      <td>Content</td>
+      <td>{{row_num+1}}</td>
+      <td>{{data[row_num]['product_name']}}</td>
+      <td>{{data[row_num]['Total_Unit_Sales']}}</td>
     </tr>
+  {% endfor %}
   </tbody>
 </table>
 </body>

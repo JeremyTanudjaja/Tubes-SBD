@@ -518,26 +518,33 @@ def delete_sales_product(id):
 # Routes for Report
 @app.route("/Report_Dashboard")
 def load_report_page():
-    return render_template('report/report_page.html')
+    result = model_controller.report_view.get_title_summary()
+    return render_template('report/report_page.html', data=result)
 
 @app.route("/AnnualDeptSal", methods=['POST', 'GET'])
 def annual_dept_sal():
-    return render_template('report/report_ajax/AnnualDeptSal.html')
+    result = model_controller.report_view.AnnualDeptSal()
+    print(result)
+    return render_template('report/report_ajax/AnnualDeptSal.html', data=result)
 
 @app.route("/AverageSales", methods=['POST', 'GET'])
 def average_sales():
-    return render_template('report/report_ajax/AverageSales.html')
+    result = model_controller.report_view.AverageSales()
+    return render_template('report/report_ajax/AverageSales.html', data=result)
 
 @app.route("/OrderAvg", methods=['POST', 'GET'])
 def order_average():
-    return render_template('report/report_ajax/OrderAvg.html')
+    result = model_controller.report_view.OrderAvg()
+    return render_template('report/report_ajax/OrderAvg.html', data=result)
 
 @app.route("/ProductSales", methods=['POST', 'GET'])
 def product_sales():
-    return render_template('report/report_ajax/ProductSales.html')
+    result = model_controller.report_view.ProductSales()
+    return render_template('report/report_ajax/ProductSales.html', data=result)
 
 @app.route("/ViewManager", methods=['POST', 'GET'])
 def view_manager():
-    return render_template('report/report_ajax/ViewManager.html')
+    result = model_controller.report_view.ViewManager()
+    return render_template('report/report_ajax/ViewManager.html', data=result)
 
 

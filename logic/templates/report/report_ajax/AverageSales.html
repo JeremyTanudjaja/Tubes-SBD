@@ -51,17 +51,20 @@
       <td>No</td>
       <td>Customer ID</td>
       <td>Customer Name</td>
-      <td>Average Purchase</td>
+      <td>Summary Purchase</td>
     </tr>
   </thead>
   <tbody>
     <!-- Table Content Here, create a while loop to get ze tables-->
+    {% for row_num in range(data|length): %}
     <tr>
-        <td>Content</td>
-      <td>Content</td>
-      <td>Content</td>
-      <td>Content</td>
+      <td>{{row_num+1}}</td>
+      <td>{{data[row_num]['customer_id']}}</td>
+      <td>{{data[row_num]['customer_name']}}</td>
+      <td>{{data[row_num]['sum_buying']}}</td>
     </tr>
+    {% endfor %}
+
   </tbody>
 </table>
 </body>

@@ -26,11 +26,11 @@
         <div class="card" >
           <img class="card-img" src="{{url_for('static', filename='res/report_pic/total_unit_sales.jpg')}}" alt="Rome" />
           <div class="card-content">
-            <h1 class="card-header">Total Sales</h1>
+            <h1 class="card-header">Total Salary</h1>
             <p class="card-text">
-              Total Sales of Company Product as of now is $
-              <strong> architecture</strong>, it is the SUM
-              of every product sold
+              Total Annual Salary that the company needs to pay is $
+              <strong> {{data['total_annual_salary']}}</strong>, it is the SUM
+              of every employee's salary That the company has to pay annually
             </p>
             <button class="card-btn" id="AnnualDeptSal">Show <span>&rarr;</span></button>
           </div>
@@ -48,9 +48,10 @@
             <p class="card-text">
               This is the count of all the products that Bike Rush has sold
               as of now. The count is about:
-              <strong>towering cliffs</strong>.
+              <strong>{{data['total_unit_sales']}}</strong> Unit
+              of Bikes Sold from All Types of Bikes
             </p>
-            <button class="card-btn" id="AverageSales">Show <span>&rarr;</span></button>
+            <button class="card-btn" id="AverageSales">Show Total Unit Sales<span>&rarr;</span></button>
           </div>
         </div>
       </div>
@@ -62,9 +63,10 @@
             <p class="card-text">
               This is the count of all the material orders that
               Bike Rush has done for its procurement purposes
-              The count is: <strong>tt</strong>
+              It has done: <strong>{{data['total_material_order']}}</strong>
+              procurement action
             </p>
-            <button class="card-btn" id="OrderAvg">Show <span>&rarr;</span></button>
+            <button class="card-btn" id="OrderAvg">Show Vendor Procured <span>&rarr;</span></button>
           </div>
         </div>
       </div>
@@ -72,14 +74,14 @@
         <div class="card">
           <img class="card-img" src="{{url_for('static', filename='res/report_pic/material_payment.jpg')}}" alt="Rome" />
           <div class="card-content">
-            <h1 class="card-header">Material Payment</h1>
+            <h1 class="card-header">Sum of Profit</h1>
             <p class="card-text">
-              For each procurement there is a cost
-              that needs to be paid. This is the total
-              sum of all the funds for procurement:
-              <strong> architecture</strong>
+              This is the total profit that
+              Bike Rush has made, it is the sum
+              of all the bikes sold:
+              <strong>$ {{data['total_sales']}}</strong>
             </p>
-            <button class="card-btn" id="ProductSales">Show <span>&rarr;</span></button>
+            <button class="card-btn" id="ProductSales">Show Product Purchase<span>&rarr;</span></button>
           </div>
         </div>
         </div>
@@ -95,10 +97,10 @@
             <p class="card-text">
               Bike Rush has employed many people through
               out the years of its existence, as of now
-              it has: <strong>cliffs</strong> people that
+              it has: <strong>{{data['total_employees']}}</strong> people that
               works here.
             </p>
-            <button class="card-btn" id="ViewManager">Show <span>&rarr;</span></button>
+            <button class="card-btn" id="ViewEmployee">Show Employee<span>&rarr;</span></button>
           </div>
         </div>
       </div>
@@ -166,7 +168,7 @@
 
       //ajax View Manager
     $(document).ready(function(){
-        $("#ViewManager").click(function(){
+        $("#ViewEmployee").click(function(){
              $.ajax({
                 url:'/ViewManager',
                 type:'POST',

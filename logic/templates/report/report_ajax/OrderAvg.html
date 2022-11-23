@@ -49,7 +49,7 @@
   <thead>
     <tr>
       <td>No</td>
-        <td>Vendor ID</td>
+      <td>Vendor ID</td>
       <td>Vendor Name</td>
       <td>Material Name</td>
       <td>Average Order</td>
@@ -57,13 +57,15 @@
   </thead>
   <tbody>
     <!-- Table Content Here, create a while loop to get ze tables-->
+    {% for row_num in range(data|length): %}
     <tr>
-      <td>Content</td>
-      <td>Content</td>
-      <td>Content</td>
-        <td>Content</td>
-        <td>Content</td>
+      <td>{{row_num+1}}</td>
+      <td>{{data[row_num]['vendor_id']}}</td>
+      <td>{{data[row_num]['vendor_name']}}</td>
+      <td>{{data[row_num]['material_name']}}</td>
+      <td>{{data[row_num]['average_order']}}</td>
     </tr>
+   {% endfor %}
   </tbody>
 </table>
 </body>
