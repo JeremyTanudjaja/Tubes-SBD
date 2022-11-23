@@ -16,7 +16,7 @@ class Employee_Controller():
         data = []
         self.cursor.execute(
             f"select emp_id, full_name, email, phone_number, hire_date, salary, photo_link, manager_id, departmen_id "
-            f"from vEmployees")
+            f"from Employees")
         for emp_id, full_name, email, phone_number, hire_date, salary, photo_link, manager_id, departmen_id in self.cursor:
             data.append({"employee_id": emp_id,
                          "employee_name": full_name,
@@ -69,10 +69,6 @@ class Employee_Controller():
         # SAVING EMPLOYEE DATA
         try:
             print("masuk insertion")
-            # print(data['Hire_Date'])
-            # print(f"CALL NEWEMP('{data['Employee_Name']}','{data['Email']}',"
-            #                     f"'{data['Phone_Number']}','{data['Hire_Date']}',{data['Salary']},"
-            #                     f"'{data['Manager_ID']}','{data['Department_ID']}','{filename}')")
             self.cursor.execute(f"CALL newEmp('{data['Employee_Name']}','{data['Email']}',"
                                 f"'{data['Phone_Number']}','{data['Hire_Date']}',{data['Salary']},"
                                 f"'{data['Manager_ID']}','{data['Department_ID']}','{filename}')")
